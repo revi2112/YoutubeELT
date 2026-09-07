@@ -1,4 +1,5 @@
 from airflow import DAG
+from dags.datawerehouse.raw_loader import load_raw_data_from_s3
 from datawerehouse.dwh import core_table, staging_table
 from dataquality.soda import yt_elt_data_quality
 import pendulum
@@ -72,7 +73,7 @@ with DAG(
     catchup = False # not to catch up missed 
 ) as dag_produce:
     
-    load_raw = load_raw_from_s3()
+    load_raw = load_raw_data_from_s3()
  
     #defining dependencies in dag
     trigger_data_quality = TriggerDagRunOperator(
