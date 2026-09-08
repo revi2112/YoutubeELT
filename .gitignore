@@ -3,6 +3,7 @@ __pycache__/
 .env
 notes.md
 notes_docker.md
+notes_dbt.md
 .venv
 logs/
 notes
